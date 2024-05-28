@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Tracker - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Performance Tracker</h1>
+        <div id="dashboard"></div>
+        <button onclick="logout()">Logout</button>
+        <p><a href="add_platform.html">Add Platform</a></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = window.localStorage.getItem('username');
+            if (!username) {
+                window.location.href = 'index.html';
+            } else {
+                fetchPerformanceData(username);
+            }
+        });
+
+        function fetchPerformanceData(username) {
+            fetch('/performance?user=' + username)
+                .then(response => response.json())
+                .then(data => renderPerformanceDashboard(data));
+        }
+
+        function renderPerformanceDashboard(data) {
+            const dashboard = document.getElementById("dashboard");
+            dashboard.innerHTML = `
+                <h2>User: ${data.user}</h2>
+                <div>
+                    <h3>Daily Activity: ${data.daily_activity}</h3>
+                </div>
+                <div>
+                    <h3>Contest Participation: ${data.contest_participation}</h3>
+                </div>
+                <div>
+                    <h3>Learning Course Progress: ${data.learning_progress}%</h3>
+                </div>
+                ${data.platforms.map(platform => `
+                    <div>
+                        <h3>${platform.name}</h3>
+                        <p>Profile Link: <a href="${platform.link}" target="_blank">${platform.link}</a></p>
+                        <p>Questions Done: ${platform.questions_done}</p>
+                        <p>Contest Rating: ${platform.contest_rating}</p>
+                        <p>Current Ranking: ${platform.current_ranking}</p>
+                        <p>Achievements: ${platform.achievements.join(', ')}</p>
+                    </div>
+                `).join('')}
+            `;
+        }
+
+        function logout() {
+            window.localStorage.removeItem('username');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

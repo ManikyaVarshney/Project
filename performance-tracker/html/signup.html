@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Tracker - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Performance Tracker</h1>
+        <div id="auth-form">
+            <h2>Sign Up</h2>
+            <input type="text" id="new-username" placeholder="Username">
+            <input type="password" id="new-password" placeholder="Password">
+            <button onclick="signup()">Sign Up</button>
+            <p>Already have an account? <a href="index.html">Login</a></p>
+        </div>
+    </div>
+    <script>
+        function signup() {
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+            
+            if (username && password) {
+                // In a real application, you would send these details to the server for registration
+                window.localStorage.setItem('username', username);
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Please enter username and password.');
+            }
+        }
+    </script>
+</body>
+</html>
