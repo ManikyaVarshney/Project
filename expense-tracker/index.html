@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Expense Tracker Dashboard</h1>
+        <button id="logout-button">Logout</button>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Income: <span id="income">0</span></p>
+            <p>Expenses: <span id="expenses">0</span></p>
+            <p>Balance: <span id="balance">0</span></p>
+        </div>
+
+        <div class="forms">
+            <div>
+                <h3>Add Income</h3>
+                <form id="income-form">
+                    <input type="text" id="income-name" placeholder="Source" required>
+                    <input type="number" id="income-amount" placeholder="Amount" required>
+                    <button type="submit">Add Income</button>
+                </form>
+            </div>
+            <div>
+                <h3>Add Expense</h3>
+                <form id="expense-form">
+                    <input type="text" id="expense-name" placeholder="Item" required>
+                    <input type="number" id="expense-amount" placeholder="Amount" required>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="chart-container">
+            <canvas id="expense-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="assets/Chart.min.js"></script>
+    <script src="tracker.js"></script>
+    <script src="charts.js"></script>
+</body>
+</html>
