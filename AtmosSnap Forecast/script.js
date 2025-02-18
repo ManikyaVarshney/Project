@@ -1,5 +1,10 @@
 function getWeather() {
-    let city = document.getElementById("city").value;
+    let city = document.getElementById("city").value.trim();
+    if (city === "") {
+        alert("Please enter a city name!");
+        return;
+    }
+
     let url = `https://wttr.in/${city}?format=%C|%t|%w|%h`;
 
     fetch(url)
@@ -34,6 +39,6 @@ function changeBackground(condition) {
     } else if (condition.includes("Snow")) {
         body.style.background = "linear-gradient(to right, #ffffff, #c0c0c0)";
     } else {
-        body.style.background = "linear-gradient(to right, #4facfe, #00f2fe)";
+        body.style.background = "linear-gradient(to right, #1e3c72, #2a5298)";
     }
 }
