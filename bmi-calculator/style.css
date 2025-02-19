@@ -7,19 +7,44 @@
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background: #f5f5f5;
 }
 
-.container {
-    background: white;
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background: #2c3e50;
+    color: white;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+}
+
+.sidebar h2 {
     text-align: center;
-    width: 300px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.top-bar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .input-group {
@@ -29,7 +54,6 @@ body {
 input {
     padding: 10px;
     width: 100%;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -53,4 +77,27 @@ button:hover {
     margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
+}
+
+.dark-mode {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .sidebar {
+    background: #333;
+}
+
+.dark-mode .content {
+    background: #111;
+}
+
+.dark-mode button {
+    background: #3498db;
+}
+
+.dark-mode input {
+    background: #444;
+    color: white;
+    border: 1px solid #888;
 }
