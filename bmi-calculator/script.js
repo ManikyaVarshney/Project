@@ -1,14 +1,18 @@
-function calculateBMI() {
-    let weight = document.getElementById("weight").value;
-    let height = document.getElementById("height").value;
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("calculateBtn").addEventListener("click", calculateBMI);
+});
 
-    if (weight === "" || height === "") {
+function calculateBMI() {
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value);
+
+    if (!weight || !height || weight <= 0 || height <= 0) {
         alert("Please enter valid weight and height!");
         return;
     }
 
     height = height / 100; // Convert cm to meters
-    let bmi = (weight / (height * height)).toFixed(2); // BMI Formula
+    let bmi = (weight / (height * height)).toFixed(2);
 
     let category = "";
     if (bmi < 18.5) {
