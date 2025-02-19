@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Number System Converter</h1>
+        
+        <div class="card">
+            <h2>Convert Numbers</h2>
+            <select id="convertFrom">
+                <option value="roman">Roman</option>
+                <option value="binary">Binary</option>
+                <option value="decimal">Decimal</option>
+                <option value="octal">Octal</option>
+                <option value="hexadecimal">Hexadecimal</option>
+            </select>
+            <select id="convertTo">
+                <option value="decimal">Decimal</option>
+                <option value="binary">Binary</option>
+                <option value="roman">Roman</option>
+                <option value="octal">Octal</option>
+                <option value="hexadecimal">Hexadecimal</option>
+            </select>
+            <input type="text" id="convertInput" placeholder="Enter value">
+            <button onclick="convertNumber()">Convert</button>
+            <p id="convertOutput">Output: </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
