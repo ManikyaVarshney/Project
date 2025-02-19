@@ -5,7 +5,7 @@ function convertNumber() {
     let output = document.getElementById("convertOutput");
 
     if (!input) {
-        output.textContent = "Please enter a valid number.";
+        output.textContent = "Output: Please enter a value.";
         return;
     }
 
@@ -26,28 +26,28 @@ function convertNumber() {
                 result = parseInt(input, 16);
                 break;
             case "roman":
-                result = romanToDecimal(input);
+                result = romanToDecimal(input.toUpperCase());
                 break;
             default:
-                result = "Invalid conversion.";
+                result = "Invalid input.";
         }
 
         if (to === "binary") result = result.toString(2);
         if (to === "decimal") result = result.toString(10);
         if (to === "octal") result = result.toString(8);
         if (to === "hexadecimal") result = result.toString(16);
-        if (to === "roman") result = decimalToRoman(result);
+        if (to === "roman") result = decimalToRoman(parseInt(result));
 
         output.textContent = `Output: ${result}`;
     } catch (error) {
-        output.textContent = "Error in conversion!";
+        output.textContent = "Output: Conversion error!";
     }
 }
 
 function romanToDecimal(roman) {
     let romanNumerals = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
     let total = 0;
-    
+
     for (let i = 0; i < roman.length; i++) {
         let current = romanNumerals[roman[i]];
         let next = romanNumerals[roman[i + 1]];
