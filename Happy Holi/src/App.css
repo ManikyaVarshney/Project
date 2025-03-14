@@ -1,0 +1,87 @@
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.icon {
+  width: 150px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite alternate;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+.radhe-krishna {
+  width: 300px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.color {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation: splash 2s infinite alternate;
+}
+
+.violet { background-color: violet; }
+.indigo { background-color: indigo; }
+.blue { background-color: blue; }
+.green { background-color: green; }
+.yellow { background-color: yellow; }
+.orange { background-color: orange; }
+.red { background-color: red; }
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+@keyframes splash {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.5); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
