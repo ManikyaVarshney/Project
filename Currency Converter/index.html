@@ -1,29 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101522">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
+  <main class="container">
+    <header class="header">
+      <div class="logo">CC</div>
+      <div>
         <h1>Currency Converter</h1>
-        <div class="converter-box">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" placeholder="Enter amount" />
+        <p>Simple, fast currency conversion</p>
+      </div>
+    </header>
 
-            <label for="fromCurrency">From:</label>
-            <select id="fromCurrency"></select>
+    <section class="converter-card">
+      <div class="section-heading">
+        <h2>Convert currencies</h2>
+        <span id="api-status" class="status loading">Connecting…</span>
+      </div>
 
-            <label for="toCurrency">To:</label>
-            <select id="toCurrency"></select>
+      <label for="amount">Amount</label>
+      <input id="amount" type="number" min="0" step="any" value="1" placeholder="Enter amount">
 
-            <button onclick="convertCurrency()">Convert</button>
-
-            <p id="result">Converted Amount: --</p>
+      <div class="currency-row">
+        <div class="currency-field">
+          <label for="fromCurrency">From</label>
+          <select id="fromCurrency" disabled>
+            <option>Loading currencies…</option>
+          </select>
         </div>
-    </div>
+
+        <button type="button" id="swap-button" class="swap-button" aria-label="Swap currencies">⇄</button>
+
+        <div class="currency-field">
+          <label for="toCurrency">To</label>
+          <select id="toCurrency" disabled>
+            <option>Loading currencies…</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" id="convert-button" class="convert-button" disabled>
+        Convert
+      </button>
+
+      <div class="result-box" aria-live="polite">
+        <p class="result-label">Converted amount</p>
+        <h2 id="result">—</h2>
+        <p id="rate-info">Exchange rate will appear here.</p>
+      </div>
+
+      <p id="message" class="message" role="status"></p>
+
+      <div class="actions">
+        <button type="button" id="reset-button" class="secondary-button">Reset</button>
+        <button type="button" id="refresh-button" class="secondary-button">Refresh rates</button>
+      </div>
+
+      <p id="updated-time" class="updated-time"></p>
+    </section>
+
+    <footer>
+      <p>Exchange rates provided by
+        <a href="https://www.exchangerate-api.com/" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a>.
+      </p>
+    </footer>
+  </main>
 </body>
-  <script src="script.js"></script>
 </html>
